@@ -1,1 +1,12 @@
-{}
+{
+  "root": {
+    "ant": null,
+    "bear": {
+      "cat": null,
+      "dog": {
+        "elephant": null
+      }
+    },
+    "frog": null
+  }
+}

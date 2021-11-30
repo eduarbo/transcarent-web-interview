@@ -1,29 +1,18 @@
 import React from 'react';
 
+import data from './data.json';
+
 import './index.css';
 
-export default function Tree() {
+const renderItem = ([text, children]) => {
   return (
-    <ol className="tree">
-      <li>
-        root
-        <ol>
-          <li>ant</li>
-          <li>
-            bear
-            <ol>
-              <li>cat</li>
-              <li>
-                dog
-                <ol>
-                  <li>elephant</li>
-                </ol>
-              </li>
-            </ol>
-          </li>
-          <li>frog</li>
-        </ol>
-      </li>
-    </ol>
+    <li key={text}>
+      {text}
+      {children ? <ol>{Object.entries(children).map(renderItem)}</ol> : null}
+    </li>
   );
+};
+
+export default function Tree() {
+  return <ol className="tree">{Object.entries(data).map(renderItem)}</ol>;
 }
