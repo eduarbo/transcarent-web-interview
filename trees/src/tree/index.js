@@ -14,12 +14,16 @@ export default function Tree() {
   const [isLoading, setLoadingState] = useState(true);
   const [data, setData] = useState();
 
-  useEffect(async () => {
-    const response = await axios.get(STORE_URL, {
+  const fetchData = async () => {
+    const response = await axios.get(`${STORE_URL}/latest`, {
       headers: { 'X-Master-Key': MASTER_KEY },
     });
     setData(response.data.record);
     setLoadingState(false);
+  };
+
+  useEffect(() => {
+    fetchData();
   }, []); // empty dependency array to only trigger on mount
 
   const saveData = async newData => {

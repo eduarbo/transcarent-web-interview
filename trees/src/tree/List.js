@@ -5,11 +5,13 @@ import './index.css';
 
 // TODO add props validation
 export default function List({ data, path = [], addItem, removeItem }) {
-  if (!data) return null;
+  const entries = data ? Object.entries(data) : [];
+
+  if (!entries.length) return null;
 
   return (
     <ol className="list">
-      {Object.entries(data).map(([text, innerData]) => {
+      {entries.map(([text, innerData]) => {
         const itemPath = [...path, text];
 
         return (
