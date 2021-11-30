@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/transcarent-web-interview/static/css/main.a70cfc58.chunk.css",
+    "main.js": "/transcarent-web-interview/static/js/main.ab1bf12a.chunk.js",
+    "main.js.map": "/transcarent-web-interview/static/js/main.ab1bf12a.chunk.js.map",
+    "runtime-main.js": "/transcarent-web-interview/static/js/runtime-main.d2b8fb07.js",
+    "runtime-main.js.map": "/transcarent-web-interview/static/js/runtime-main.d2b8fb07.js.map",
+    "static/css/2.bd932d36.chunk.css": "/transcarent-web-interview/static/css/2.bd932d36.chunk.css",
+    "static/js/2.bed59245.chunk.js": "/transcarent-web-interview/static/js/2.bed59245.chunk.js",
+    "static/js/2.bed59245.chunk.js.map": "/transcarent-web-interview/static/js/2.bed59245.chunk.js.map",
+    "index.html": "/transcarent-web-interview/index.html",
+    "static/css/2.bd932d36.chunk.css.map": "/transcarent-web-interview/static/css/2.bd932d36.chunk.css.map",
+    "static/css/main.a70cfc58.chunk.css.map": "/transcarent-web-interview/static/css/main.a70cfc58.chunk.css.map",
+    "static/js/2.bed59245.chunk.js.LICENSE.txt": "/transcarent-web-interview/static/js/2.bed59245.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d2b8fb07.js",
+    "static/css/2.bd932d36.chunk.css",
+    "static/js/2.bed59245.chunk.js",
+    "static/css/main.a70cfc58.chunk.css",
+    "static/js/main.ab1bf12a.chunk.js"
+  ]
+}
