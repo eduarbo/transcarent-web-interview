@@ -6,17 +6,31 @@
   margin: 0;
 }
 
-ol {
+.remove-icon {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.add-item-input {
+  display: block;
+}
+
+.list {
   counter-reset: item;
   list-style-type: none;
   margin-top: 1rem;
 }
 
-li:before {
+.list:first-child {
+  margin: 0;
+  padding: 0;
+}
+
+.list-item:before {
   content: counters(item, '.') '  ';
   counter-increment: item;
 }
 
-li {
+.list-item {
   margin-bottom: 1rem;
 }
