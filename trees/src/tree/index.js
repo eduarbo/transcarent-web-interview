@@ -1,18 +1,42 @@
 import { set, unset } from 'lodash';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-import initialData from './data.json';
 import List from './List';
+import Spinner from './Spinner';
 
 import './index.css';
 
+const STORE_URL = 'https://api.jsonbin.io/v3/b/61a6855f0ddbee6f8b14dad8';
+const MASTER_KEY = '$2b$10$xJgvOstI94CVbBW4RgawUu30qbNshiErQIbBKUIJp6ursGw7Nc7Du';
+
 export default function Tree() {
-  const [data, setData] = useState(initialData);
+  const [isLoading, setLoadingState] = useState(true);
+  const [data, setData] = useState();
+
+  useEffect(async () => {
+    const response = await axios.get(STORE_URL, {
+      headers: { 'X-Master-Key': MASTER_KEY },
+    });
+    setData(response.data.record);
+    setLoadingState(false);
+  }, []); // empty dependency array to only trigger on mount
+
+  const saveData = async newData => {
+    await axios.put(STORE_URL, newData, {
+      headers: { 'X-Master-Key': MASTER_KEY },
+    });
+  };
+
+  const updateData = newData => {
+    setData(newData);
+    saveData(newData);
+  };
 
   const removeItem = path => {
     const newData = { ...data };
     unset(newData, path);
-    setData(newData);
+    updateData(newData);
   };
 
   const addItem = path => event => {
@@ -20,14 +44,14 @@ export default function Tree() {
     if (key !== 'Enter') return;
 
     const newData = { ...data };
-    set(newData, [...path, target.value]);
-    setData(newData);
+    set(newData, [...path, target.value], null);
+    updateData(newData);
     target.value = '';
   };
 
   return (
     <div className="tree">
-      <List data={data} addItem={addItem} removeItem={removeItem} />
+      {isLoading ? <Spinner /> : <List data={data} addItem={addItem} removeItem={removeItem} />}
     </div>
   );
 }

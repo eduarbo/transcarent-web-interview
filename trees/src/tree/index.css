@@ -34,3 +34,9 @@
 .list-item {
   margin-bottom: 1rem;
 }
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
