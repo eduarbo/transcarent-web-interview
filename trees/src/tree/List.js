@@ -16,7 +16,6 @@ export default function List({ data, path = [], addItem, removeItem }) {
           <ListItem
             key={itemPath}
             text={text}
-            data={innerData}
             path={itemPath}
             addItem={addItem}
             removeItem={removeItem}
