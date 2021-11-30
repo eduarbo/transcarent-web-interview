@@ -3,4 +3,14 @@
   height: 100%;
   padding: 10px;
   font-family: monospace;
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin-top: 1rem;
+}
+
+li {
+  margin-bottom: 1rem;
 }
