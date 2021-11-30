@@ -4,26 +4,26 @@ import './index.css';
 
 export default function Tree() {
   return (
-    <ul className="tree">
+    <ol className="tree">
       <li>
         root
-        <ul>
+        <ol>
           <li>ant</li>
           <li>
             bear
-            <ul>
+            <ol>
               <li>cat</li>
               <li>
                 dog
-                <ul>
+                <ol>
                   <li>elephant</li>
-                </ul>
+                </ol>
               </li>
-            </ul>
+            </ol>
           </li>
           <li>frog</li>
-        </ul>
+        </ol>
       </li>
-    </ul>
+    </ol>
   );
 }

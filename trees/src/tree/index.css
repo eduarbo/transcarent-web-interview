@@ -6,9 +6,15 @@
   margin: 0;
 }
 
-ul {
+ol {
+  counter-reset: item;
   list-style-type: none;
   margin-top: 1rem;
+}
+
+li:before {
+  content: counters(item, '.') '  ';
+  counter-increment: item;
 }
 
 li {
