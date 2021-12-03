@@ -38,8 +38,16 @@ export default function Tree() {
   };
 
   const removeItem = path => {
-    const newData = { ...data };
-    unset(newData, path);
+    const newData = [...data];
+
+    path.reduce((acc, pathIndex, index) => {
+      if (index + 1 === path.length) {
+        return acc.splice(pathIndex, 1);
+      }
+
+      return acc[pathIndex].items;
+    }, newData);
+
     updateData(newData);
   };
 
@@ -47,8 +55,18 @@ export default function Tree() {
     const { target, key } = event;
     if (key !== 'Enter') return;
 
-    const newData = { ...data };
-    set(newData, [...path, target.value], null);
+    const newData = [...data];
+    const newNode = { value: target.value };
+
+    if (!path.length) {
+      newData.push(newNode);
+    } else {
+      const lastNode = path.reduce((acc, pathIndex) => {
+        return acc[pathIndex].items;
+      }, newData);
+      lastNode.push(newNode);
+    }
+
     updateData(newData);
     target.value = '';
   };

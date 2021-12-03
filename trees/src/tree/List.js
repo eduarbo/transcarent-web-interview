@@ -5,24 +5,25 @@ import './index.css';
 
 // TODO add props validation
 export default function List({ data, path = [], addItem, removeItem }) {
-  const entries = data ? Object.entries(data) : [];
+  const entries = data || [];
 
   if (!entries.length) return null;
 
   return (
     <ol className="list">
-      {entries.map(([text, innerData]) => {
-        const itemPath = [...path, text];
+      {entries.map((node, index) => {
+        const { value, items } = node;
+        const itemPath = [...path, index];
 
         return (
           <ListItem
             key={itemPath}
-            text={text}
+            text={value}
             path={itemPath}
             addItem={addItem}
             removeItem={removeItem}
           >
-            <List data={innerData} path={itemPath} addItem={addItem} removeItem={removeItem} />
+            <List data={items} path={itemPath} addItem={addItem} removeItem={removeItem} />
           </ListItem>
         );
       })}
